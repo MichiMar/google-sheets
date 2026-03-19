@@ -13,13 +13,20 @@
     <button id="authorize_button" onclick="handleAuthClick()">Authorize</button>
     <button id="signout_button" onclick="handleSignoutClick()">Sign Out</button>
 
+    <hr>
+    <h3>Gestión de Empresas</h3>
+    <input type="text" id="comp_name" placeholder="Nombre Compañía">
+    <input type="text" id="comp_estado" placeholder="Estado">
+    <button onclick="ejecutarCrear()">Guardar Nueva</button>
+
+    <hr>
     <pre id="content" style="white-space: pre-wrap;"></pre>
 
     <script async defer src="js/auth.js"></script> <!--Tiene que estar arriba-->
+    <script async defer src="js/sheet.js"></script>
 
     <script async defer src="https://apis.google.com/js/api.js" onload="gapiLoaded()" id="gapi"></script>
     <script async defer src="https://accounts.google.com/gsi/client" onload="gisLoaded()" id="gis"></script>
-    <script async defer src="js/sheet.js"></script>
 
 
   </body>
