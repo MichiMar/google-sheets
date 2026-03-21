@@ -54,6 +54,7 @@ async function editEmpresas(contenido) {
         contenido.numEstado,
         contenido.estado,
         contenido.region,
+        contenido.sector,
         contenido.compania,
         contenido.empleados,
         contenido.graduados,
@@ -94,31 +95,6 @@ async function crearEmpresa(datos) {
     }
   }
   
-  async function editarEmpresa(id, nuevosDatos) {
-    // Calculo del rango basado en el ID (asumiendo que el ID 1 está en la fila 2)
-    const filaAEditar = parseInt(id) + 1; 
-    const rango = `States!A${filaAEditar}:J${filaAEditar}`;
-  
-    try {
-      await gapi.client.sheets.spreadsheets.values.update({
-        spreadsheetId: '1p8yW4LQUdVTPYA5Nd7vkg5m5X96HTBTwI_Exy-gw7fo',
-        range: rango,
-        valueInputOption: 'USER_ENTERED',
-        resource: {
-          values: [[
-            nuevosDatos.id, nuevosDatos.numEstado, nuevosDatos.estado, 
-            nuevosDatos.region, nuevosDatos.sector, nuevosDatos.compania, 
-            nuevosDatos.empleados, nuevosDatos.graduados, 
-            nuevosDatos.aprobacion, nuevosDatos.notas
-          ]]
-        },
-      });
-      alert('Fila actualizada');
-      await getStates(); 
-    } catch (err) {
-      console.error('Error al editar:', err);
-    }
-  }
 
   function ejecutarCrear() {
     const datos = {

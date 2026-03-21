@@ -5,6 +5,8 @@
     <meta charset="utf-8" />
     <meta http-equiv="Cross-Origin-Opener-Policy" content="same-origin-allow-popups">
     <script src="js/credenciales.js"></script>
+    <script src="js/sheet.js"></script>
+
   </head>
   <body>
     <p>Sheets API Quickstart</p>
@@ -22,12 +24,28 @@
     <hr>
     <pre id="content" style="white-space: pre-wrap;"></pre>
 
-    <script async defer src="js/auth.js"></script> <!--Tiene que estar arriba-->
-    <script async defer src="js/sheet.js"></script>
-
+    <script src="js/auth.js"></script> <!--Tiene que estar arriba-->
     <script async defer src="https://apis.google.com/js/api.js" onload="gapiLoaded()" id="gapi"></script>
     <script async defer src="https://accounts.google.com/gsi/client" onload="gisLoaded()" id="gis"></script>
 
+    <script>
+        function ejecutarCrear() {
+    const datos = {
+      id: Date.now().toString().slice(-5), // ID temporal basado en tiempo
+      numEstado: "1",
+      estado: document.getElementById('comp_estado').value,
+      region: "Norte",
+      sector: "Tecnología",
+      compania: document.getElementById('comp_name').value,
+      empleados: "10",
+      graduados: "5",
+      aprobacion: "Si",
+      notas: ""
+    };
+    crearEmpresa(datos);
+  }
+  
+    </script>
 
   </body>
 </html>
